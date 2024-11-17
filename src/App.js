@@ -5,9 +5,14 @@ import { useState } from 'react';
 
 function App() {
   const [showTable, setShowTable] = useState(false);
+  const handleClick = () => {
+    setShowTable(!showTable);
+  }
   return (
     <div className="App">
-      <header className="App-header">
+    <button onClick={handleClick}>
+      {showTable ? "Hide" : "Show"} Table
+    </button>
       {!showTable &&<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
