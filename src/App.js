@@ -13,7 +13,7 @@ function App() {
     <button onClick={handleClick}>
       {showTable ? "Hide" : "Show"} Table
     </button>
-      {!showTable &&<header className="App-header">
+      <header className={showTable? "App-header-hidden": "App-header"}>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -27,7 +27,6 @@ function App() {
           Learn React
         </a>
       </header>
-      }
       {showTable && <Table/>}
     </div>
   );
