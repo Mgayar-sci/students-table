@@ -1,11 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import Table from './Table';
+import { useState } from 'react';
 
 function App() {
+  const [showTable, setShowTable] = useState(false);
   return (
     <div className="App">
       <header className="App-header">
+      {!showTable &&<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -19,7 +22,8 @@ function App() {
           Learn React
         </a>
       </header>
-      <Table/>
+      }
+      {showTable && <Table/>}
     </div>
   );
 }
