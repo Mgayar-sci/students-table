@@ -1,36 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
-import Table from './Table';
-import { useState } from 'react';
+import Login from './Components/login';
+import Register from './Components/Register';
+import Main from './Components/Main';
+import Navbar from "./Components/Navbar";
+
+import{
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from 'react-router-dom';
+import Posts from './Components/posts';
 
 function App() {
-  const [showTable, setShowTable] = useState(false);
-  const handleClick = () => {
-    setShowTable(!showTable);
-  }
+
   return (
-    <div className="App">
-    <button onClick={handleClick}>
-      {showTable ? "Hide" : "Show"} Table
-    </button>
-      <header className={showTable? "App-header-hidden App-header": "App-header App-header-show"}>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <div className={showTable? "table": "table hide-table"}>
-        <Table/>
-      </div>
-    </div>
+    <>
+    <Router>
+    <Navbar />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/posts" element={<Posts />} />
+        <Route path="/" element={<Main />} />
+        <Route path="*" element={<div>Page Not Found</div>} />
+      </Routes>
+    </Router>
+    </>
   );
 }
 
