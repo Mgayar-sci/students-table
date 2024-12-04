@@ -35,3 +35,4 @@ jobs:
         npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # You have to configure your repository - Settings -> Action -> General -> Workflow permissions and choose read and write permissions for "workflows" and "actions" to use GITHUB_TOKEN
